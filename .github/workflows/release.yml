@@ -52,12 +52,12 @@ jobs:
           cp app/build/outputs/apk/release/*.apk artifacts/
 
       - name: Upload Release
-        uses: ncipollo/release-action@v1
+        uses: softprops/action-gh-release@v2
         with:
-          name: v${{ steps.version.outputs.version }}
-          token: ${{ secrets.GIT_TOKEN }}
-          omitBodyDuringUpdate: true
-          omitNameDuringUpdate: true
-          omitPrereleaseDuringUpdate: true
-          allowUpdates: true
-          artifacts: artifacts/*
+          name: tv_${{ env.VERSION }}
+          tag_name: ${{ env.VERSION }}
+          draft: false
+          prerelease: false
+          files: artifacts/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
