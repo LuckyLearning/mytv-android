@@ -52,6 +52,14 @@ jobs:
           mkdir -p artifacts
           cp app/build/outputs/apk/release/*.apk artifacts/
 
+      - name: 删除旧的 Release
+        uses: octokit/request-action@v2.x
+        with:
+          route: DELETE /repos/${{ github.repository }}/releases/tags/${{ steps.version.outputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
       - name: Upload Release
         uses: softprops/action-gh-release@v2
         with:
