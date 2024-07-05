@@ -18,7 +18,7 @@ object Constants {
      * IPTV源地址
      */
     const val IPTV_SOURCE_URL =
-        "https://cdn.jsdelivr.net/gh/LuckyLearning/TV/master/ipv6.m3u"
+        "https://cdn.jsdelivr.net/gh/LuckyLearning/TV@latest/ipv6.m3u"
 
     /**
      * IPTV源缓存时间（毫秒）
